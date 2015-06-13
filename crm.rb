@@ -125,7 +125,36 @@ class CRM
           puts "#{contact.id} #{contact.first_name}"
         else
           puts "no matches found"
-          prompt
+        end
+      when 2
+          puts "Enter the last name you are looking for"
+          last_name = gets.chomp.capitalize
+          contact = @rolodex.find_by_L_name(id, last_name)
+        if contact != false
+          puts "here are the matching results"
+          puts "#{contact.id} #{contact.last_name}"
+        else
+          puts "no matches found"
+        end
+      when 3
+          puts "Enter the email you are looking for"
+          email = gets.chomp
+          contact = @rolodex.find_by_email(id, email)
+        if contact != false
+          puts "here are the matching results"
+          puts "#{contact.id} #{contact.email}"
+        else
+          puts "no matches found"
+        end
+      when 4
+          puts "Enter the notes you are looking for"
+          notes = gets.chomp
+          contact = @rolodex.find_by_notes(id, notes)
+        if contact != false
+          puts "here are the matching reults"
+          puts "#{contact.id} #{contact.notes}"
+        else
+          puts "no matches found"
         end
       end
   end

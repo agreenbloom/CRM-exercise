@@ -84,7 +84,7 @@ class Rolodex #class for sorting
    def find_by_notes(id, notes)
       @contacts.each do |contact|
         if contact.notes.include?(notes)
-          return contacts
+          return contact
         else
           puts "that note does not exist, please try again"
         end
