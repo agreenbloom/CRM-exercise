@@ -108,14 +108,25 @@ class CRM
     puts "what is your id"
       id = gets.chomp.to_i
     puts "what would you like to view"
-      info = gets.chomp
+    puts "(1) to display first name"
+    puts "(2) to display last name"
+    puts "(3) to display email"
+    puts "(4) to display notes"
 
-      case info
-      when "first name" then @contact.first_name
-      when "last name" then @contact.last_name
-      when "email" then @contact.email
-      when "notes" then @contact.notes
-      else puts "that field is not available"
+    search_attribute = gets.chomp.to_i
+
+      case search_attribute
+      when 1
+          puts "Enter the first name you are looking for"
+          first_name = gets.chomp.capitalize
+          contact = @rolodex.find_by_F_name(id, first_name)
+        if contact != false
+          puts "Here are the matching results"
+          puts "#{contact.id} #{contact.first_name}"
+        else
+          puts "no matches found"
+          prompt
+        end
       end
   end
 

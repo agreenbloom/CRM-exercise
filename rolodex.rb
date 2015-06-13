@@ -49,9 +49,47 @@ class Rolodex #class for sorting
     edit_N.notes = new_notes
   end
 
-def delete_contact(id_delete)
+  def delete_contact(id_delete)
     @contacts.delete_if{|contact| contact.id == id_delete}
   end
+
+  def find_by_F_name(id, first_name)
+      @contacts.each do |contact|
+        if contact.first_name.include?(first_name)
+          return contact
+        end
+      end
+   end
+
+  def find_by_L_name(id, last_name)
+      @contacts.each do |contact|
+        if contact.last_name.include?(last_name)
+          return contact
+        else
+          puts "that contact does not exist, please try again"
+        end
+      end
+   end
+
+   def find_by_email(id, email)
+      @contacts.each do |contact|
+        if contact.email.include?(email)
+          return contact
+        else
+          puts "that note does not exist, please try again"
+        end
+      end
+   end
+
+   def find_by_notes(id, notes)
+      @contacts.each do |contact|
+        if contact.notes.include?(notes)
+          return contacts
+        else
+          puts "that note does not exist, please try again"
+        end
+      end
+   end
 
 end
 
