@@ -1,5 +1,6 @@
 require_relative('rolodex.rb')
 
+
 class CRM
   attr_reader :name
 
@@ -104,10 +105,27 @@ class CRM
   end
 
   def display_attribute
-    @rolodex.all.each do |contact|
-      puts " #{@@id} #{contact.first_name} #{contact.last_name}, #{contact.email}, #{contact.notes}"
-    end
+    puts "what is your id"
+      id = gets.chomp.to_i
+    puts "what would you like to view"
+      info = gets.chomp
+
+      case info
+      when "first name" then @contact.first_name
+      when "last name" then @contact.last_name
+      when "email" then @contact.email
+      when "notes" then @contact.notes
+      else puts "that field is not available"
+      end
   end
+
+  def delete_contact
+    puts "what is your id"
+    id_delete = gets.chomp.to_i
+    @rolodex.delete_contact(id_delete)
+    puts "you have successfully deleted ID #{id_delete}"
+  end
+
 
 end
 

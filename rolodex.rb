@@ -49,6 +49,9 @@ class Rolodex #class for sorting
     edit_N.notes = new_notes
   end
 
+def delete_contact(id_delete)
+    @contacts.delete_if{|contact| contact.id == id_delete}
+  end
 
 end
 
