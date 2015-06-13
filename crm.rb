@@ -30,7 +30,7 @@ class CRM
     case choice
     when 1 then add_contact
     when 2 then edit_contact
-    when 3 then display_contact
+    when 3 then display_contacts
     when 4 then display_attribute
     when 5 then delete_contact
     when 6
@@ -98,7 +98,7 @@ class CRM
 
   end
 
-  def display_contact
+  def display_contacts
     @rolodex.all.each do |contact|
       puts "#{contact.first_name} #{contact.last_name} #{contact.email} #{contact.notes}"
     end
@@ -165,6 +165,7 @@ class CRM
     @rolodex.delete_contact(id_delete)
     puts "you have successfully deleted ID #{id_delete}"
   end
+
 
 
 end

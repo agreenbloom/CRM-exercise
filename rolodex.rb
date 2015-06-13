@@ -16,6 +16,14 @@ class Rolodex #class for sorting
     @contacts << contact
   end
 
+  def display_particular_contact(id, first_name, last_name, email, notes)
+    puts "What ID are you searching for"
+    id =gets.chomp.to_i
+    @contacts.id.each do |contact|
+      puts "#{first_name} #{last_name}, #{email}, #{notes}"
+    end
+  end
+
   def all
     @contacts
   end
